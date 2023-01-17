@@ -1,14 +1,15 @@
 import React from "react";
 import Loading from "../components/Loading";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
 const SingleCocktail = () => {
   const { id } = useParams();
-  const [loading, setLoading] = React.useState(false);
-  const [cocktail, setCocktail] = React.useState(null);
+  const [loading, setLoading] = useState(false);
+  const [cocktail, setCocktail] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setLoading(true);
     async function getCocktail() {
       try {
@@ -18,9 +19,6 @@ const SingleCocktail = () => {
           const {
             strDrink: name,
             strDrinkThumb: image,
-            strAlcoholic: info,
-            strCategory: category,
-            strGlass: glass,
             strInstructions: instructions,
             strIngredient1,
             strIngredient2,
@@ -58,9 +56,6 @@ const SingleCocktail = () => {
           const newCocktail = {
             name,
             image,
-            info,
-            category,
-            glass,
             instructions,
             ingredients,
             measures,
@@ -87,21 +82,9 @@ const SingleCocktail = () => {
   }
   console.log();
 
-  const {
-    name,
-    image,
-    category,
-    info,
-    glass,
-    instructions,
-    ingredients,
-    measures,
-  } = cocktail;
+  const { name, image, instructions, ingredients, measures } = cocktail;
   return (
     <section className="section cocktail-section">
-      <Link to="/" className="all-btns">
-        Home
-      </Link>
       <h1 className="section-title">
         <strong>{name}</strong>
       </h1>
@@ -111,18 +94,6 @@ const SingleCocktail = () => {
           <p>
             <span className="drink-data"> name:</span>
             {name}
-          </p>
-          <p>
-            <span className="drink-data"> category:</span>
-            {category}
-          </p>
-          <p>
-            <span className="drink-data"> info:</span>
-            {info}
-          </p>
-          <p>
-            <span className="drink-data"> glass:</span>
-            {glass}
           </p>
           <p>
             <span className="drink-data"> instructions:</span>

@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="d-flex gap-2">
         <h1 className="navbar-header">
-          Cocktail <span className="nav-span">Hour</span>
+          Cocktail<span className="nav-span">Hour</span>
         </h1>
         <BiDrink size={40} className="mt-1" />
       </div>

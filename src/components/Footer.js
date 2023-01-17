@@ -43,11 +43,7 @@ const Footer = () => {
             </svg>
           </a>
         </div>
-        <p className="mt-2 p-2">
-          Copyright &copy;
-          <script>document.write(new Date().getFullYear())</script> Cocktail
-          Hour
-        </p>
+        <p className="mt-2 p-2">Copyright &copy; 2023 Cocktail Hour</p>
       </footer>
     </div>
   );
