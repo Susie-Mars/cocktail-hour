@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BiDrink } from "react-icons/bi";
-import Random from "./Random";
 
 const Navbar = () => {
   return (

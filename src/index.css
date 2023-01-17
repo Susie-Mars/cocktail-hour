@@ -29,6 +29,7 @@ img {
   font-size: 16px;
   text-decoration: none;
   padding: 0.5rem;
+  margin-top: 10px;
   border-radius: 0.25rem;
   box-shadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.3);
 }
@@ -36,6 +37,21 @@ img {
 .all-btns:hover {
   background-color: rgb(131, 51, 64);
   color: white;
+}
+
+/* ERROR PAGE */
+.error-page {
+  display: flex;
+  justify-content: center;
+}
+.error-container {
+  text-align: center;
+  text-transform: capitalize;
+  height: 100vh;
+}
+
+.error-img {
+  height: 30rem;
 }
 
 /*  NAVBAR   */
@@ -78,6 +94,7 @@ img {
   width: 85vw;
   max-width: 1170px;
   margin: 0 auto;
+  height: 100vh;
   text-indent: 40px;
 }
 .about-section p {

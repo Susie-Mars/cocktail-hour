@@ -102,7 +102,9 @@ const SingleCocktail = () => {
       <Link to="/" className="all-btns">
         Home
       </Link>
-      <h2 className="section-title">{name}</h2>
+      <h1 className="section-title">
+        <strong>{name}</strong>
+      </h1>
       <div className="drink">
         <img src={image} alt={name}></img>
         <div className="drink-info">

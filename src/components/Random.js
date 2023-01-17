@@ -17,7 +17,8 @@ const Random = () => {
       const { data } = await axios(url);
       console.log(data.drinks);
       setRandomDrink(data.drinks);
-      navigate("/cocktail/random");
+      console.log(data.drinks);
+      navigate(`/cocktail/random`);
     } catch (error) {
       console.log(error);
     }
