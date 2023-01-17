@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BiDrink } from "react-icons/bi";
+import Random from "./Random";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="nav-center">
-        <h1>Cocktail Hour</h1>
+      <div className="d-flex gap-2">
+        <h1 className="navbar-header">
+          Cocktail <span className="nav-span">Hour</span>
+        </h1>
+        <BiDrink size={40} className="mt-1" />
       </div>
       <div className="nav-links">
         <Link to="/">Home</Link>

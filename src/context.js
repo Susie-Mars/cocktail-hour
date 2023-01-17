@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 

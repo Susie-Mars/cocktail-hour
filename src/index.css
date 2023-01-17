@@ -4,7 +4,6 @@
 }
 
 body {
-  font-family: "Barlow Condensed", sans-serif;
   background-image: linear-gradient(
     to left bottom,
     #f6bacc,
@@ -41,12 +40,15 @@ img {
 
 /*  NAVBAR   */
 .navbar {
+  font-family: "Source Code Pro", monospace;
   height: 5rem;
   display: flex;
   padding: 0.5rem;
-  /* align-items: center; */
-  align-items: flex-start;
-  box-shadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.4);
+  margin-top: 1.2rem;
+}
+
+.navbar-header {
+  margin-left: 1.2rem;
 }
 
 .nav-links {
@@ -66,11 +68,17 @@ img {
   transition: all 0.3s linear;
 }
 
+.nav-span {
+  color: rgb(156, 72, 86);
+}
+
 /* ABOUT */
 .about-section {
+  font-family: "Source Code Pro", monospace;
   width: 85vw;
   max-width: 1170px;
   margin: 0 auto;
+  text-indent: 40px;
 }
 .about-section p {
   line-height: 2rem;
@@ -81,6 +89,7 @@ img {
 
 /* FORMS */
 .search {
+  font-family: "Source Code Pro", monospace;
   margin-top: 1rem;
   padding-bottom: 0;
 }
@@ -94,6 +103,10 @@ img {
   text-transform: capitalize;
   border-radius: 0.25rem;
   box-shadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.form-control {
+  border: transparent;
 }
 
 .form-control label {
@@ -116,6 +129,7 @@ img {
 
 /* COCKTAILS LIST */
 .section {
+  font-family: "Source Code Pro", monospace;
   padding: 2rem 0;
 }
 .section-title {
@@ -143,6 +157,7 @@ img {
 
 /* COCKTAIL */
 .cocktail {
+  font-family: "Source Code Pro", monospace;
   background: white;
   margin-bottom: 2rem;
   box-shadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
@@ -151,6 +166,7 @@ img {
   justify-content: center;
   grid-template-rows: auto 1fr;
   border-radius: 0.25rem;
+  padding: 2rem;
 }
 .cocktail:hover {
   box-shadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
@@ -163,6 +179,8 @@ img {
   /* border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem; */
   border-radius: 50%;
+  outline: 5px solid salmon;
+  outline-offset: 5px;
 }
 .cocktail-footer {
   padding: 1.5rem;
@@ -195,9 +213,10 @@ img {
   text-align: left;
 }
 .drink img {
-  border-radius: 0.25rem;
   height: 30rem;
   border-radius: 50%;
+  outline: 5px solid salmon;
+  outline-offset: 10px;
 }
 .drink p {
   font-weight: bold;
@@ -289,6 +308,8 @@ img {
     height: 5em;
   }
 }
+
+/* FOOTER */
 
 .footer {
   position: absolute;
