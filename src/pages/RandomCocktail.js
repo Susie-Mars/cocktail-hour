@@ -1,7 +1,8 @@
 import React from "react";
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
@@ -14,13 +15,13 @@ const RandomCocktail = () => {
     setLoading(true);
     async function getCocktail() {
       try {
-        const response = await fetch(url);
-        const data = await response.json();
+        const { data } = await axios(url);
         if (data.drinks) {
           const {
             strDrink: name,
             strDrinkThumb: image,
             strInstructions: instructions,
+            strIngredient1: mainIngredient,
             strIngredient1,
             strIngredient2,
             strIngredient3,
@@ -57,6 +58,7 @@ const RandomCocktail = () => {
           const newCocktail = {
             name,
             image,
+            mainIngredient,
             instructions,
             ingredients,
             measures,
@@ -86,7 +88,8 @@ const RandomCocktail = () => {
     return <h2 className="section-title">no cocktail to display</h2>;
   }
 
-  const { name, image, instructions, ingredients, measures } = cocktail;
+  const { name, image, mainIngredient, instructions, ingredients, measures } =
+    cocktail;
   return (
     <section className="section cocktail-section">
       <button onClick={refreshPage} className="all-btns">
@@ -101,6 +104,10 @@ const RandomCocktail = () => {
           <p>
             <span className="drink-data"> name:</span>
             {name}
+          </p>
+          <p>
+            <span className="drink-data"> Main Ingredient:</span>
+            {mainIngredient}
           </p>
           <p>
             <span className="drink-data"> instructions:</span>

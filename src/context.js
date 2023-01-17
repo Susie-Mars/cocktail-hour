@@ -1,7 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
@@ -20,14 +18,11 @@ const AppProvider = ({ children }) => {
       const { drinks } = data;
       if (drinks) {
         const newCocktails = drinks.map((item) => {
-          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
-            item;
+          const { idDrink, strDrink, strDrinkThumb } = item;
           return {
             id: idDrink,
             name: strDrink,
             image: strDrinkThumb,
-            info: strAlcoholic,
-            glass: strGlass,
           };
         });
         setCocktails(newCocktails);
@@ -35,7 +30,6 @@ const AppProvider = ({ children }) => {
         setCocktails([]);
       }
       setLoading(false);
-      // console.log(data);
     } catch (error) {
       console.log(error);
       setLoading(false);

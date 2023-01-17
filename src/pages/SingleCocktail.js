@@ -1,7 +1,8 @@
 import React from "react";
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
 const SingleCocktail = () => {
@@ -13,13 +14,13 @@ const SingleCocktail = () => {
     setLoading(true);
     async function getCocktail() {
       try {
-        const response = await fetch(`${url}${id}`);
-        const data = await response.json();
+        const { data } = await axios(`${url}${id}`);
         if (data.drinks) {
           const {
             strDrink: name,
             strDrinkThumb: image,
             strInstructions: instructions,
+            strIngredient1: mainIngredient,
             strIngredient1,
             strIngredient2,
             strIngredient3,
@@ -56,6 +57,7 @@ const SingleCocktail = () => {
           const newCocktail = {
             name,
             image,
+            mainIngredient,
             instructions,
             ingredients,
             measures,
@@ -80,9 +82,9 @@ const SingleCocktail = () => {
   if (!cocktail) {
     return <h2 className="section-title">no cocktail to display</h2>;
   }
-  console.log();
 
-  const { name, image, instructions, ingredients, measures } = cocktail;
+  const { name, image, mainIngredient, instructions, ingredients, measures } =
+    cocktail;
   return (
     <section className="section cocktail-section">
       <h1 className="section-title">
@@ -96,6 +98,11 @@ const SingleCocktail = () => {
             {name}
           </p>
           <p>
+            <p>
+              <span className="drink-data"> Main Ingredient:</span>
+              {mainIngredient}
+            </p>
+            <p></p>
             <span className="drink-data"> instructions:</span>
             {instructions}
           </p>
